@@ -32,8 +32,10 @@ React를 이용해 [예시 화면](https://react-todolist-ruddy.vercel.app/) 과
 
 PR 시 Title은 
 
-[1주차] '이름'
+[1주차] 이름
 
 으로 시작하여 작성해주세요 ! 
+
+Content의 내용은 자유롭게 작성해주시면 됩니다 :)
 
 
