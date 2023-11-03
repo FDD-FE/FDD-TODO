@@ -42,7 +42,7 @@ export const TodoContainer = () => {
 
     return (
         <div className="w-screen h-screen flex justify-center items-center">
-            <div className="m-0 w-3/12 bg-white rounded-2xl h-3/5 py-12 px-8 relative" css={containerCSS}>
+            <div className="m-0 w-[580px] bg-white rounded-2xl h-3/5 py-12 px-8 relative" css={containerCSS}>
                 <p>To Do List::</p>
                 <p>해야할 일을 정리하자 🤗</p>
                 <p>2023-11-04</p>
