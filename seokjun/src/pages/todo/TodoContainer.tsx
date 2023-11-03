@@ -51,7 +51,7 @@ export const TodoContainer = () => {
 
                 <div className="py-4 border border-l-0 border-r-0 border-t-0"></div>
 
-                <div className="pt-8">
+                <div className="pt-8 h-4/6">
                     <TodoList onChange={onChange} todo={todoList} onDelete={onDelete}/>
                 </div>
 

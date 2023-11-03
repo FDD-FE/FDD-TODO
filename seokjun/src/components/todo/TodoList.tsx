@@ -33,7 +33,7 @@ export default function TodoList(props: ITodoProps) {
     }
 
     return (
-        <ul className="overflow-scroll">
+        <ul className="overflow-scroll h-full">
             {
                 props.todo.map((item: Todo, index: number) => {
                     return (
