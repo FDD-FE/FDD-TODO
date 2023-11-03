@@ -1,10 +1,9 @@
 import React from 'react';
-import {TodoContainer} from "./pages";
 
 function App() {
     return (
         <div className="App">
-            <TodoContainer/>
+            Main
         </div>
     );
 }
