@@ -5,6 +5,7 @@ import {useState} from "react";
 import TodoList from "../../components/todo/TodoList";
 import {Todo} from "../../types/todo";
 import Timer from "../../components/todo/Timer";
+import Prompt from "../../components/todo/Prompt";
 
 const containerCSS = css`
   box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 8px 0px;
@@ -13,8 +14,6 @@ const containerCSS = css`
 export const TodoContainer = () => {
     const [isShow, setIsShow] = useState(false)
     const [todoList, setTodoList] = useState<Todo[]>([])
-    const [input, setInput] = useState('')
-
 
     const optionOnClick = (isClick: boolean) => {
         setIsShow(isClick)
@@ -37,10 +36,9 @@ export const TodoContainer = () => {
         setTodoList([...updatedTodo])
     }
 
-    const onCreate = () => {
-        todoList.push({isComplete: false, content: input})
+    const onCreate = (message: string) => {
+        todoList.push({isComplete: false, content: message})
         setTodoList([...todoList])
-        setInput('')
     }
 
     return (
@@ -57,17 +55,7 @@ export const TodoContainer = () => {
                     <TodoList onChange={onChange} todo={todoList} onDelete={onDelete}/>
                 </div>
 
-                <div css={(isShow) ? null : {display: 'none'}}
-                     className="bottom-0 left-0 absolute w-full h-32 rounded-l-2xl rounded-r-2xl bg-gr bg-[#F8F9FA] px-8 pt-6">
-                    <input type="text" placeholder="할 일을 입력하세요!" css={{border: '1px solid #CCCCCC'}}
-                           className="w-full h-12 px-3 rounded outline-none" value={input}
-                           onChange={(e) => setInput(e.target.value)}
-                           onKeyDown={(e) => {
-                               if (e.code === "Enter") {
-                                   onCreate()
-                               }
-                           }}/>
-                </div>
+                <Prompt isShow={isShow} onCreate={onCreate}/>
                 <OptionalButton css={{right: '42%', bottom: '-40px'}} className="absolute" onClick={optionOnClick}/>
             </div>
         </div>
