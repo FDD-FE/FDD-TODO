@@ -2,6 +2,7 @@ import {combineReducers, configureStore, getDefaultMiddleware} from '@reduxjs/to
 import storage from 'redux-persist/lib/storage'
 import {persistReducer} from 'redux-persist'
 import todoSlice from "./todo";
+import {persistStore} from "redux-persist";
 
 const persistentConfig = {key: 'root', storage}
 const rootReducer = combineReducers({todo: todoSlice.reducer})
@@ -14,3 +15,6 @@ export const store = configureStore({
     }),
     devTools: process.env.NODE_ENV !== "production"
 });
+
+
+export const persistor = persistStore(store)

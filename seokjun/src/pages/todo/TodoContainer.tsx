@@ -8,7 +8,7 @@ import Timer from "../../components/todo/Timer";
 import Prompt from "../../components/todo/Prompt";
 import {generateRandom} from "../../utils/random";
 import {useDispatch, useSelector} from "react-redux";
-import {selectTodo, setTodo} from "../../store/todo";
+import {deleteTodo, selectTodo, setTodo, updateTodo} from "../../store/todo";
 
 const containerCSS = css`
   box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 8px 0px;
@@ -19,33 +19,27 @@ export const TodoContainer = () => {
     const todo = useSelector(selectTodo)
     const dispatch = useDispatch()
 
-    console.log(todo)
-
     const optionOnClick = (isClick: boolean) => {
         setIsShow(isClick)
     }
 
     const onChange = useCallback((isClick: boolean, id: number) => {
-        const updatedTodo: Todo[] = todo.map((item: Todo) => {
-            if (item.id === id) {
-                item.isComplete = isClick
-            }
+        const updateItem = todo.items.filter((item: Todo) => item.id === id)
+        dispatch(updateTodo({items: [{id: id, isComplete: isClick, content: ''}]}))
 
-            return item
-        })
-
-        //setTodoList([...updatedTodo])
-    }, [todo])
+    }, [])
 
     const onDelete = useCallback((id: number) => {
-        //setTodoList(todos => todos.filter(todo => todo.id !== id))
+        dispatch(deleteTodo({items: [{id: id, isComplete: false, content: ''}]}))
     }, [])
 
     const onCreate = useCallback((message: string) => {
             dispatch(setTodo({items: [{id: generateRandom(), isComplete: false, content: message}]}))
         },
-        [todo]
+        []
     )
+
+    console.log(todo.items)
 
     return (
         <div className="w-screen h-screen flex justify-center items-center">
@@ -53,12 +47,12 @@ export const TodoContainer = () => {
                 <p className="text-2xl font-bold">To Do List::</p>
                 <p>해야할 일을 정리하자 🤗</p>
                 <Timer/>
-                <p className="text-xl">할 일 1개 남음</p>
+                <p className="text-xl">할 일 {todo.items.filter((item) => !item.isComplete).length}개 남음</p>
 
                 <div className="py-4 border border-l-0 border-r-0 border-t-0"></div>
 
                 <div className="pt-8 h-4/6">
-                    <TodoList onChange={onChange} todo={todo} onDelete={onDelete}/>
+                    <TodoList onChange={onChange} todo={todo.items} onDelete={onDelete}/>
                 </div>
 
                 <Prompt isShow={isShow} onCreate={onCreate}/>

@@ -5,6 +5,7 @@ interface ICheckBoxProps {
     className?: string,
     onClick: (isClick: boolean, index: number) => void,
     id: number,
+    value: boolean,
 }
 
 const CheckBoxIcon = () => {
@@ -20,7 +21,7 @@ const CheckBoxIcon = () => {
 }
 
 export default function CheckBox(props: ICheckBoxProps) {
-    const [isClick, setIsClick] = useState(false)
+    const [isClick, setIsClick] = useState(props.value)
 
     const onClick = () => {
         props.onClick(!isClick, props.id)
