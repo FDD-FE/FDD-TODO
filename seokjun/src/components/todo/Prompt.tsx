@@ -9,8 +9,6 @@ interface IPromptProps {
 export default function Prompt(props: IPromptProps) {
     const input = useRef<HTMLInputElement>(null)
 
-    console.log(props.isShow)
-
     return (
         <div css={(props.isShow) ? null : {display: 'none'}}
              className="bottom-0 left-0 absolute w-full h-32 rounded-l-2xl rounded-r-2xl bg-gr bg-[#F8F9FA] px-8 pt-6">
