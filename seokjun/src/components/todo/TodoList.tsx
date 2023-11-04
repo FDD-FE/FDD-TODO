@@ -1,5 +1,4 @@
 import {Todo} from "../../types/todo";
-import CheckBox from "./CheckBox";
 
 interface ITrashIconProps {
     className: string;
@@ -31,10 +30,11 @@ export default function TodoList(props: ITodoProps) {
     const checkBoxOnClick = (isClick: boolean, index: number) => {
         props.onChange(isClick, index)
     }
+    console.log(props.todo)
 
     return (
         <ul className="overflow-scroll h-full">
-            {
+            {/*            {
                 props.todo.map((item: Todo) => {
                     return (
                         <li key={item.id} className="pb-6 flex">
@@ -46,7 +46,7 @@ export default function TodoList(props: ITodoProps) {
                         </li>
                     )
                 })
-            }
+            }*/}
         </ul>
     )
 }
