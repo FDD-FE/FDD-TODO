@@ -1,41 +1,46 @@
-# FDD-TODO
-안녕하세요 ! 이번주차 과제 설명을 맡게된 **곽성재**입니다.
+# Getting Started with Create React App
 
-이번 주차부터는 1~4주차에 배웠던 기술스택을 활용하여 간단한 TODO리스트를 만들어볼 예정입니다.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-과제의 핵심 요구 사항을 제외한 나머지 구현 사항들은 개인의 자유에 맡기겠습니다. 
+## Available Scripts
 
-## 과제
+In the project directory, you can run:
 
-React를 이용해 [예시 화면](https://react-todolist-ruddy.vercel.app/) 과 같은 투두리스트를 만들어 봅니다.
+### `yarn start`
 
-핵심 요구 사항은 다음과 같습니다.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-1. TypeScript와 React Router를 적용하여 과제를 수행합니다.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-2. 투두 아이템을 생성하고, 삭제할 수 있습니다.
+### `yarn test`
 
-3. 투두 아이템을 클릭 시 완료 처리 할 수 있습니다.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-4. 할 일의 갯수를 확인할 수 있습니다.
+### `yarn build`
 
-5. 새로고침 버튼을 눌러도 페이지의 내용이 유지되도록 합니다. 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## 마감 기한
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-11월 4일 토요일 오후 2시 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `yarn eject`
 
-## 제출 방식
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-마감 기한까지 PR을 보내주시면 됩니다. 
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-PR 시 Title은 
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-[1주차] 이름
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-으로 시작하여 작성해주세요 ! 
+## Learn More
 
-Content의 내용은 자유롭게 작성해주시면 됩니다 :)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-
+To learn React, check out the [React documentation](https://reactjs.org/).
