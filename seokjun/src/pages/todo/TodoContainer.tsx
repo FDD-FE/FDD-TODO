@@ -28,9 +28,7 @@ export const TodoContainer = () => {
     }, [todo])
 
     const onChange = useCallback((isClick: boolean, id: number) => {
-        const updateItem = todo.items.filter((item: Todo) => item.id === id)
         dispatch(updateTodo({items: [{id: id, isComplete: isClick, content: ''}]}))
-
     }, [])
 
     const onDelete = useCallback((id: number) => {
@@ -39,9 +37,7 @@ export const TodoContainer = () => {
 
     const onCreate = useCallback((message: string) => {
             dispatch(setTodo({items: [{id: generateRandom(), isComplete: false, content: message}]}))
-        },
-        []
-    )
+    }, [])
 
     console.log(todo.items)
 
