@@ -4,7 +4,7 @@ import {useState} from "react";
 interface ICheckBoxProps {
     className?: string,
     onClick: (isClick: boolean, index: number) => void,
-    index: number,
+    id: number,
 }
 
 const CheckBoxIcon = () => {
@@ -23,7 +23,7 @@ export default function CheckBox(props: ICheckBoxProps) {
     const [isClick, setIsClick] = useState(false)
 
     const onClick = () => {
-        props.onClick(!isClick, props.index)
+        props.onClick(!isClick, props.id)
         setIsClick(!isClick)
     }
 

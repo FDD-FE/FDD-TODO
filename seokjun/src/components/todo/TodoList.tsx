@@ -3,14 +3,14 @@ import CheckBox from "./CheckBox";
 
 interface ITrashIconProps {
     className: string;
-    index: number;
+    id: number;
     onClick: (index: number) => void
 }
 
 const TrashIcon = (props: ITrashIconProps) => {
     return (
         <svg onClick={() => {
-            props.onClick(props.index)
+            props.onClick(props.id)
         }} className={props.className} stroke="currentColor" fill="currentColor" stroke-width="0"
              viewBox="0 0 24 24"
              height="1em" width="1em"
@@ -24,7 +24,7 @@ const TrashIcon = (props: ITrashIconProps) => {
 interface ITodoProps {
     todo: Todo[]
     onChange: (isClick: boolean, index: number) => void
-    onDelete: (index: number) => void
+    onDelete: (id: number) => void
 }
 
 export default function TodoList(props: ITodoProps) {
@@ -35,14 +35,14 @@ export default function TodoList(props: ITodoProps) {
     return (
         <ul className="overflow-scroll h-full">
             {
-                props.todo.map((item: Todo, index: number) => {
+                props.todo.map((item: Todo) => {
                     return (
-                        <li className="pb-6 flex">
-                            <CheckBox onClick={checkBoxOnClick} index={index}/>
+                        <li key={item.id} className="pb-6 flex">
+                            <CheckBox onClick={checkBoxOnClick} id={item.id}/>
                             <span
                                 className={`text-xl w-11/12 ${item.isComplete ? 'text-[#CCCCCC]' : null}`}>{item.content}</span>
                             <TrashIcon className="h-8 w-8 text-[#CCCCCC] hover:text-[#FF6B6B] cursor-pointer"
-                                       index={index} onClick={props.onDelete}/>
+                                       id={item.id} onClick={props.onDelete}/>
                         </li>
                     )
                 })

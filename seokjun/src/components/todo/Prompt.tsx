@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import {useRef} from "react";
 
 interface IPromptProps {
@@ -7,6 +8,8 @@ interface IPromptProps {
 
 export default function Prompt(props: IPromptProps) {
     const input = useRef<HTMLInputElement>(null)
+
+    console.log(props.isShow)
 
     return (
         <div css={(props.isShow) ? null : {display: 'none'}}

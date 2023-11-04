@@ -1,11 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import {css} from "@emotion/react";
 import OptionalButton from "../../components/todo/OptionalButton";
-import {useState} from "react";
+import {useCallback, useState} from "react";
 import TodoList from "../../components/todo/TodoList";
 import {Todo} from "../../types/todo";
 import Timer from "../../components/todo/Timer";
 import Prompt from "../../components/todo/Prompt";
+import {generateRandom} from "../../utils/random";
 
 const containerCSS = css`
   box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 8px 0px;
@@ -19,9 +20,9 @@ export const TodoContainer = () => {
         setIsShow(isClick)
     }
 
-    const onChange = (isClick: boolean, index: number) => {
-        const updatedTodo: Todo[] = todoList.map((item: Todo, idx: number) => {
-            if (idx === index) {
+    const onChange = (isClick: boolean, id: number) => {
+        const updatedTodo: Todo[] = todoList.map((item: Todo) => {
+            if (item.id === id) {
                 item.isComplete = isClick
             }
 
@@ -31,13 +32,12 @@ export const TodoContainer = () => {
         setTodoList([...updatedTodo])
     }
 
-    const onDelete = (index: number) => {
-        const updatedTodo: Todo[] = todoList.filter((_, idx: number) => idx !== index)
-        setTodoList([...updatedTodo])
-    }
+    const onDelete = useCallback((id: number) => {
+        setTodoList(todos => todos.filter(todo => todo.id !== id))
+    }, [])
 
     const onCreate = (message: string) => {
-        todoList.push({isComplete: false, content: message})
+        todoList.push({id: generateRandom(), isComplete: false, content: message})
         setTodoList([...todoList])
     }
 
