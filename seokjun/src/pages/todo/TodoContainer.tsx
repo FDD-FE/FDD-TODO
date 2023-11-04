@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import {css} from "@emotion/react";
 import OptionalButton from "../../components/todo/OptionalButton";
-import {useCallback, useState} from "react";
+import {useCallback, useMemo, useState} from "react";
 import TodoList from "../../components/todo/TodoList";
 import {Todo} from "../../types/todo";
 import Timer from "../../components/todo/Timer";
@@ -22,6 +22,10 @@ export const TodoContainer = () => {
     const optionOnClick = (isClick: boolean) => {
         setIsShow(isClick)
     }
+
+    const calculateTodoCount = useMemo(() => {
+        return todo.items.filter((todo) => !todo.isComplete).length
+    }, [todo])
 
     const onChange = useCallback((isClick: boolean, id: number) => {
         const updateItem = todo.items.filter((item: Todo) => item.id === id)
@@ -47,7 +51,7 @@ export const TodoContainer = () => {
                 <p className="text-2xl font-bold">To Do List::</p>
                 <p>해야할 일을 정리하자 🤗</p>
                 <Timer/>
-                <p className="text-xl">할 일 {todo.items.filter((item) => !item.isComplete).length}개 남음</p>
+                <p className="text-xl">할 일 {calculateTodoCount}개 남음</p>
 
                 <div className="py-4 border border-l-0 border-r-0 border-t-0"></div>
 
