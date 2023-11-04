@@ -1,5 +1,13 @@
+import Header from "./Header";
+import InputBox from "./InputBox";
+
 const ToDoList = () => {
-  return <div>ToDoList 입니다 !</div>;
+  return (
+    <>
+      <Header />
+      <InputBox />
+    </>
+  );
 };
 
 export default ToDoList;
