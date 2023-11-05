@@ -2,13 +2,13 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 type Todo = {
-  id: number;
+  id: string;
   text: string;
   done: boolean;
 };
 
 type Item = {
-  id: number;
+  id: string;
   text: string;
   done: boolean;
 };
@@ -16,7 +16,7 @@ type Item = {
 interface TODOS {
   todos: any[];
   setTodos: (todo: Todo) => void;
-  deleteTodo: (deleteId: number) => void;
+  deleteTodo: (deleteId: string) => void;
 }
 
 const useTodoStore = create<TODOS>()(
