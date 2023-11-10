@@ -1,11 +1,8 @@
-import "./App.css";
-import ToDoList from "./components/ToDoList";
-import GlobalStyle from "./styles/GlobalStyle";
+import ToDoList from "@components/ToDoList";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
       <ToDoList />
     </>
   );

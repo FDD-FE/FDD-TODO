@@ -1,5 +1,5 @@
-import useTodoStore from "../contexts/store";
-import Item from "./Item";
+import useTodoStore from "@stores/store";
+import Item from "@components/Item";
 
 const ItemList = () => {
   const { todos } = useTodoStore();

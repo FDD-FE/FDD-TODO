@@ -1,6 +1,6 @@
-import Header from "./Header";
-import InputBox from "./InputBox";
-import ItemList from "./ItemList";
+import Header from "@components/Header";
+import InputBox from "@components/InputBox";
+import ItemList from "@components/ItemList";
 
 const ToDoList = () => {
   return (

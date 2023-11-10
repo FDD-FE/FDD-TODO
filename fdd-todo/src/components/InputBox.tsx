@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useTodoStore from "../contexts/store";
+import useTodoStore from "@stores/store";
 import { v4 } from "uuid";
 
 const InputBox = () => {

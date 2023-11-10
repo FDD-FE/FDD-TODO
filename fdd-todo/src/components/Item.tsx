@@ -1,5 +1,4 @@
-import React from "react";
-import useTodoStore from "../contexts/store";
+import useTodoStore from "@stores/store";
 
 interface ItemInfo {
   id: string;
